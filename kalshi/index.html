@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="0;url=https://kalshi.com/account/profile">
-<title>Redirecting...</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Kalshi</title>
+<style>
+  body {
+    font-family: -apple-system, system-ui, sans-serif;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+    color: #333;
+    background: #f8f8f8;
+  }
+  h1 { font-size: 1.3em; }
+  .url-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 20px 0;
+    font-size: 0.95em;
+    word-break: break-all;
+    color: #007aff;
+  }
+  button {
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:active { opacity: 0.8; }
+  .hint {
+    margin-top: 16px;
+    font-size: 0.85em;
+    color: #888;
+  }
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="https://kalshi.com/account/profile">Kalshi Account &amp; Security</a>...</p>
+  <h1>Open Kalshi in Safari</h1>
+  <p>The Kalshi app can't manage API keys, so you need to use Safari.</p>
+  <p>Tap <strong>Copy Link</strong>, then paste it into Safari's address bar.</p>
+  <div class="url-box" id="url">https://kalshi.com/account/profile</div>
+  <button onclick="copy()">Copy Link</button>
+  <p class="hint" id="hint"></p>
+  <script>
+    function copy() {
+      navigator.clipboard.writeText(document.getElementById('url').textContent).then(function() {
+        document.getElementById('hint').textContent = 'Copied! Paste in Safari\'s address bar.';
+      });
+    }
+  </script>
 </body>
 </html>
